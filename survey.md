@@ -1,6 +1,14 @@
 ### social network - business requirements
 - welcome page
-  - news feed
+  - news feed - without logging
+    - business perspective
+    - news from last 24 hours
+    - news
+    - text
+    - picture
+    - post author
+    - timestamp
+
   - login
 
 - profile
