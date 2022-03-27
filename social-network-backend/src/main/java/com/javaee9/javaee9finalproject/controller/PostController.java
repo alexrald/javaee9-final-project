@@ -1,6 +1,8 @@
 package com.javaee9.javaee9finalproject.controller;
 
+import com.javaee9.javaee9finalproject.dto.PostDto;
 import com.javaee9.javaee9finalproject.entity.Post;
+import com.javaee9.javaee9finalproject.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +15,18 @@ import java.util.List;
 @RequestMapping("/posts")
 public class PostController {
 
-    private final PostController postController;
+    private final PostService postService;
 
-    public PostController(PostController postController) {
-        this.postController = postController;
+    public PostController(PostService postService) {
+        this.postService = postService;
     }
 
     // /posts?boundary= vs /posts/recent
     @GetMapping("/recent")
-    public List<Post> readRecentPosts() {
+    public List<PostDto> readRecentPosts() {
 
         log.info("reading recent posts");
-        return postController.readRecentPosts();
+        return postService.readAllRecentPosts();
     }
 
 
