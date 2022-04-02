@@ -67,7 +67,7 @@ public class PostService {
         log.info("creating new post: [{}]", newPostDto);
 
         Post newPost = postConverter.dtoToEntity(newPostDto);
-        newPost = postRepository.save(newPost);
+        postRepository.save(newPost);
         PostDto resDTO = postConverter.entityToDto(newPost);
         log.info("Created post: [{}]", resDTO);
 

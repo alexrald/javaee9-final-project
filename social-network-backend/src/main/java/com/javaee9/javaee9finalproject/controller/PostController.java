@@ -46,6 +46,8 @@ public class PostController {
     }
 
     @PostMapping()
+    // Without @RequestBody Spring expects parameters to be in the URL
+    // With @RequestBody they should be in the request body
     public PostDto createNewPost(@RequestBody PostDto toStore) {
         log.info("trying to create new post: [{}]", toStore);
 
