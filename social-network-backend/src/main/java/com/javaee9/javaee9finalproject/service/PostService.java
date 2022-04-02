@@ -4,6 +4,8 @@ import com.javaee9.javaee9finalproject.converter.PostConverter;
 import com.javaee9.javaee9finalproject.dto.PostDto;
 import com.javaee9.javaee9finalproject.entity.Post;
 import com.javaee9.javaee9finalproject.repository.PostRepository;
+import com.javaee9.javaee9finalproject.utility.TimeUtilities;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -55,5 +57,20 @@ public class PostService {
 //                .map(post -> postConverter.entityToDto(post))
                 .map(postConverter::entityToDto)
                 .toList();
+    }
+
+    // Receipt
+    // 1. Convert to Entity from DTO
+    // 2. Store entity into DB
+    // 3. Return to client DTO based on
+    public PostDto createNewPost(PostDto newPostDto) {
+        log.info("creating new post: [{}]", newPostDto);
+
+        Post newPost = postConverter.dtoToEntity(newPostDto);
+        newPost = postRepository.save(newPost);
+        PostDto resDTO = postConverter.entityToDto(newPost);
+        log.info("Created post: [{}]", resDTO);
+
+        return resDTO;
     }
 }

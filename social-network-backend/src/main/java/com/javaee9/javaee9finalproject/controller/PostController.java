@@ -4,10 +4,7 @@ import com.javaee9.javaee9finalproject.dto.PostDto;
 import com.javaee9.javaee9finalproject.entity.Post;
 import com.javaee9.javaee9finalproject.service.PostService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,6 +43,13 @@ public class PostController {
                 "2000",
                 "2001"
                 );
+    }
+
+    @PostMapping()
+    public PostDto createNewPost(@RequestBody PostDto toStore) {
+        log.info("trying to create new post: [{}]", toStore);
+
+        return postService.createNewPost(toStore);
     }
 
 }
