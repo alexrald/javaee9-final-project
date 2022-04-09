@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.Clock;
 import java.time.ZonedDateTime;
 
@@ -21,7 +23,14 @@ public class Post {
     Long            id;
 
     String          header;
+
+    // TODO: Move limitation values to a single place
+    @NotEmpty
+    @Size(min = 3, message = "Your post is too short!")
     String          content;
+
+    @NotEmpty
+    @Size(min = 3, message = "Your author name is too short!")
     String          author;
     
     ZonedDateTime   creationTimestamp;

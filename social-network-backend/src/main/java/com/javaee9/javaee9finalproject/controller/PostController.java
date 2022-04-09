@@ -13,8 +13,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/posts")
 // never - ever use entities inside controllers. Use DTOs.
-// TODO: Move cross-origin URL to configuration
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("${allowed.origin.url}")
 public class PostController {
 
     private final PostService postService;

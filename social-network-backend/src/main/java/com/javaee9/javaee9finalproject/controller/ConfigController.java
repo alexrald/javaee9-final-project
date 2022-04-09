@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequestMapping("/config")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("${allowed.origin.url}")
 // CORS - Cross-Origin Resource Sharing
 // @CrossOrigin annotation allows browser to process requests from a different origin
 // In this case, the resource is shared between localhost:8080 (backend) and localhost:4200 (frontend)

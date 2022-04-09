@@ -14,7 +14,6 @@ public record PostDto(
         @Size(min = 3, message = "Your post is too short!")
         String          content,
 
-        // TODO: check if author exists
         @NotEmpty
         @Size(min = 3, message = "Your author name is too short!")
         String          author,
