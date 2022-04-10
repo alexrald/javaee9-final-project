@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, tap, map} from "rxjs";
 import {Post} from "../models/post";
-import {BACKEND_NEWS_FEED} from "../constants/constant";
+import {BACKEND_CREATE_POST, BACKEND_NEWS_FEED} from "../constants/constant";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,11 @@ export class NewsFeedService {
             })),
         tap(value => console.log("Data after processing: " + JSON.stringify(value)))
       );
+  }
+
+  createNewPost(newPost: Post) {
+    console.log(`Trying to send to backend new post: [${newPost}]`);
+    this.http.post(BACKEND_CREATE_POST, newPost);
 
   }
 }
