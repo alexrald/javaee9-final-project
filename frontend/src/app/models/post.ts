@@ -3,6 +3,6 @@ export interface Post {
   header:           string,
   content:          string,
   author:           string,
-  creationDateTime: string,   // TODO: Change for date server
-  updateDateTime:   string;
+  creationDateTime: string|null,   // TODO: Change for date server
+  updateDateTime:   string|null;
 }
