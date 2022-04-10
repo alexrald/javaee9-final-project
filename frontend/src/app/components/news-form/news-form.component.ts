@@ -31,7 +31,7 @@ export class NewsFormComponent {
     console.log(`Form submitted with the object: [${JSON.stringify(this.postForm.value)}`);
 
     let post: Post = {
-      id:       0,
+      id:       null,
       author:   this.postForm.value.author,
       content:  this.postForm.value.content,
       header:   this.postForm.value.header,
